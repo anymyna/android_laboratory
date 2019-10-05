@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_tab_top"
+                android:layout_width="match_parent"
+                android:gravity="left|center_vertical"
+                android:layout_height="@dimen/qb_px_40"
+                android:textAllCaps="false"
+                android:text="TabLayout"
+                />
+
+
+            <Button
+                android:id="@+id/btn_tab_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_tab_top"
+                android:layout_below="@id/btn_tab_top"
+                android:textAllCaps="false"
+                android:text="TabLayout Recyclerview "
+                />
+
+
+
+            <Button
+                android:id="@+id/btn_vector"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_tab_recyclerview"
+                android:layout_below="@id/btn_tab_recyclerview"
+                android:textAllCaps="false"
+                android:text="Vector"
+                />
+
+
+            <Button
+                android:id="@+id/btn_circle_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_vector"
+                android:layout_below="@id/btn_vector"
+                android:textAllCaps="false"
+                android:text="CircleIndicator"
+                />
+
+            <Button
+                android:id="@+id/btn_okhttp"
+                android:gravity="left|center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:layout_alignLeft="@id/btn_circle_indicator"
+                android:layout_below="@id/btn_circle_indicator"
+                android:text="Okhttp"
+                android:textAllCaps="false"
+                />
+
+
+            <Button
+                android:id="@+id/btn_add_flutter_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_okhttp"
+                android:layout_below="@id/btn_okhttp"
+                android:text="add Flutter view"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_add_flutter_view"
+                android:layout_below="@id/btn_add_flutter_view"
+                android:text="ConstraintLayout"
+                android:textAllCaps="false"
+                />
+
+
+            <Button
+                android:id="@+id/easy_permissions"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/constraint_layout"
+                android:layout_below="@id/constraint_layout"
+                android:text="EasyPermissions"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/btn_logger"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/easy_permissions"
+                android:layout_below="@id/easy_permissions"
+                android:text="Logger"
+                android:textAllCaps="false"
+                />
+
+
+            <Button
+                android:id="@+id/btn_parallaxback"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_logger"
+                android:layout_below="@id/btn_logger"
+                android:text="ParallaxBack"
+                android:textAllCaps="false"
+                />
+
+
+            <Button
+                android:id="@+id/btn_swipebacklayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_parallaxback"
+                android:layout_below="@id/btn_parallaxback"
+                android:text="SwipeBack"
+                android:textAllCaps="false"
+                />
+
+
+            <Button
+                android:id="@+id/btn_dbflow_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_swipebacklayout"
+                android:layout_below="@id/btn_swipebacklayout"
+                android:text="dbflow"
+                android:textAllCaps="false"
+                />
+
+
+            <Button
+                android:id="@+id/btn_greendao_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_dbflow_layout"
+                android:layout_below="@id/btn_dbflow_layout"
+                android:text="greendao"
+                android:textAllCaps="false"
+                />
+
+
+            <Button
+                android:id="@+id/loopviewpager_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/btn_greendao_layout"
+                android:layout_below="@id/btn_greendao_layout"
+                android:text="loopviewpager"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/photoview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/loopviewpager_layout"
+                android:layout_below="@id/loopviewpager_layout"
+                android:text="photoview"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/retrofit_get_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/photoview_layout"
+                android:layout_below="@id/photoview_layout"
+                android:text="retrofit_get"
+                android:visibility="gone"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/retrofit_post_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40"
+                android:gravity="left|center_vertical"
+                android:layout_alignLeft="@id/retrofit_get_layout"
+                android:layout_below="@id/retrofit_get_layout"
+                android:text="retrofit"
+                android:textAllCaps="false"
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
