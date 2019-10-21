@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.photoview_layout,R.id.retrofit_post_layout,R.id.retrofit_get_layout,R.id.btn_tab_top,R.id.loopviewpager_layout,R.id.btn_greendao_layout,R.id.btn_dbflow_layout,R.id.btn_swipebacklayout,R.id.btn_parallaxback, R.id.btn_logger,R.id.btn_tab_recyclerview, R.id.easy_permissions, R.id.constraint_layout,R.id.btn_vector, R.id.btn_circle_indicator, R.id.btn_okhttp, R.id.btn_add_flutter_view})
+    @OnClick({R.id.photoview_layout,R.id.retrofit_post_layout,R.id.retrofit_get_layout,R.id.btn_tab_top,R.id.loopviewpager_layout,R.id.btn_greendao_layout,R.id.btn_dbflow_layout,R.id.btn_swipebacklayout,R.id.btn_parallaxback, R.id.btn_logger,R.id.btn_tab_recyclerview, R.id.easy_permissions, R.id.constraint_layout,R.id.btn_vector, R.id.btn_rxjava, R.id.btn_okhttp, R.id.btn_add_flutter_view})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_tab_top:
@@ -34,8 +34,8 @@ public class HomeActivity extends AppCompatActivity {
                 //startActivity(new Intent(this, VectorDemoActivity.class));
                 ARouter.getInstance().build("/test/activity").navigation();
                 break;
-            case R.id.btn_circle_indicator:
-                startActivity(new Intent(this, CircleIndicatorActivity.class));
+            case R.id.btn_rxjava:
+                startActivity(new Intent(this, RxJavaActivity.class));
                 break;
             case R.id.btn_okhttp:
                 startActivity(new Intent(this, OkhttpDemoActivity.class));

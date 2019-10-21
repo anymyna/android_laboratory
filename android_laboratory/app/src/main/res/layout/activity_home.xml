@@ -52,14 +52,14 @@
 
 
             <Button
-                android:id="@+id/btn_circle_indicator"
+                android:id="@+id/btn_rxjava"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_40"
                 android:gravity="left|center_vertical"
                 android:layout_alignLeft="@id/btn_vector"
                 android:layout_below="@id/btn_vector"
                 android:textAllCaps="false"
-                android:text="CircleIndicator"
+                android:text="Rxjava"
                 />
 
             <Button
@@ -67,8 +67,8 @@
                 android:gravity="left|center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_40"
-                android:layout_alignLeft="@id/btn_circle_indicator"
-                android:layout_below="@id/btn_circle_indicator"
+                android:layout_alignLeft="@id/btn_rxjava"
+                android:layout_below="@id/btn_rxjava"
                 android:text="Okhttp"
                 android:textAllCaps="false"
                 />
