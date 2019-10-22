@@ -86,13 +86,13 @@
                 />
 
             <Button
-                android:id="@+id/constraint_layout"
+                android:id="@+id/RxPermission_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_40"
                 android:gravity="left|center_vertical"
                 android:layout_alignLeft="@id/btn_add_flutter_view"
                 android:layout_below="@id/btn_add_flutter_view"
-                android:text="ConstraintLayout"
+                android:text="RxPermission"
                 android:textAllCaps="false"
                 />
 
@@ -102,8 +102,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_40"
                 android:gravity="left|center_vertical"
-                android:layout_alignLeft="@id/constraint_layout"
-                android:layout_below="@id/constraint_layout"
+                android:layout_alignLeft="@id/RxPermission_layout"
+                android:layout_below="@id/RxPermission_layout"
                 android:text="EasyPermissions"
                 android:textAllCaps="false"
                 />
