@@ -27,14 +27,14 @@
 
 
             <Button
-                android:id="@+id/btn_tab_recyclerview"
+                android:id="@+id/btn_rxbinding"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_40"
                 android:gravity="left|center_vertical"
                 android:layout_alignLeft="@id/btn_tab_top"
                 android:layout_below="@id/btn_tab_top"
                 android:textAllCaps="false"
-                android:text="TabLayout Recyclerview "
+                android:text="RxBinding"
                 />
 
 
@@ -44,8 +44,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_40"
                 android:gravity="left|center_vertical"
-                android:layout_alignLeft="@id/btn_tab_recyclerview"
-                android:layout_below="@id/btn_tab_recyclerview"
+                android:layout_alignLeft="@id/btn_rxbinding"
+                android:layout_below="@id/btn_rxbinding"
                 android:textAllCaps="false"
                 android:text="Vector"
                 />

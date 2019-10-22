@@ -1,18 +1,20 @@
-package com.example.ui;
+package com.example.ui.rxjava;
 
 import android.Manifest;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+
+import com.example.ui.R;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import io.reactivex.functions.Consumer;
 
 
 
-public class RxPermissionActivity extends AppCompatActivity {
-    private String TAG = "RxPermissionActivity";
+public class RxPermissionsActivity extends AppCompatActivity {
+    private String TAG = "RxPermissionsActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class RxPermissionActivity extends AppCompatActivity {
        findViewById(R.id.text_camera).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RxPermissions permissions = new RxPermissions(RxPermissionActivity.this);
+                RxPermissions permissions = new RxPermissions(RxPermissionsActivity.this);
                 permissions.setLogging(true);
                 permissions.request(Manifest.permission.CAMERA)
                         .subscribe(new Consumer<Boolean>() {
@@ -39,11 +41,12 @@ public class RxPermissionActivity extends AppCompatActivity {
             }
         });
 
+       //You can also observe a detailed result with requestEach or ensureEach :
         findViewById(R.id.text_sms).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                RxPermissions rxPermissions = new RxPermissions(RxPermissionActivity.this);
+                RxPermissions rxPermissions = new RxPermissions(RxPermissionsActivity.this);
                 rxPermissions.requestEach(Manifest.permission.READ_SMS)
                         .subscribe(new Consumer<Permission>() {
                             @Override
@@ -69,7 +72,7 @@ public class RxPermissionActivity extends AppCompatActivity {
         findViewById(R.id.text_camera_sms).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RxPermissions permissions = new RxPermissions(RxPermissionActivity.this);
+                RxPermissions permissions = new RxPermissions(RxPermissionsActivity.this);
                 permissions.setLogging(true);
                 permissions.request(Manifest.permission.CAMERA,Manifest.permission.READ_SMS)
                         .subscribe(new Consumer<Boolean>() {

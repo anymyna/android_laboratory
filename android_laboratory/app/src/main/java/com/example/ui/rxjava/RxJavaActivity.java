@@ -1,9 +1,10 @@
-package com.example.ui;
+package com.example.ui.rxjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.example.ui.R;
 import com.orhanobut.logger.Logger;
 
 import rx.Observable;

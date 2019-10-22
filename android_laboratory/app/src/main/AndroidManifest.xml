@@ -28,11 +28,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TablayoutRecyclerViewActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+        <activity android:name=".rxjava.RxBindingActivity"
+            android:label="RxBinding"
+            >
         </activity>
 
         <activity
@@ -47,7 +45,7 @@
 
 
         <activity
-            android:name=".RxJavaActivity"
+            android:name=".rxjava.RxJavaActivity"
             android:label="RxJava"
             android:screenOrientation="portrait"/>
 
@@ -64,8 +62,8 @@
 
 
         <activity
-            android:name=".RxPermissionActivity"
-            android:label="RxPermission"
+            android:name=".rxjava.RxPermissionsActivity"
+            android:label="RxPermissions"
             android:screenOrientation="portrait"/>
 
 

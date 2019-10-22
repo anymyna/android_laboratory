@@ -7,6 +7,9 @@ import android.view.View;
 
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.ui.rxjava.RxBindingActivity;
+import com.example.ui.rxjava.RxJavaActivity;
+import com.example.ui.rxjava.RxPermissionsActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -21,14 +24,14 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.photoview_layout,R.id.retrofit_post_layout,R.id.retrofit_get_layout,R.id.btn_tab_top,R.id.loopviewpager_layout,R.id.btn_greendao_layout,R.id.btn_dbflow_layout,R.id.btn_swipebacklayout,R.id.btn_parallaxback, R.id.btn_logger,R.id.btn_tab_recyclerview, R.id.easy_permissions, R.id.RxPermission_layout,R.id.btn_vector, R.id.btn_rxjava, R.id.btn_okhttp, R.id.btn_add_flutter_view})
+    @OnClick({R.id.photoview_layout,R.id.retrofit_post_layout,R.id.retrofit_get_layout,R.id.btn_tab_top,R.id.loopviewpager_layout,R.id.btn_greendao_layout,R.id.btn_dbflow_layout,R.id.btn_swipebacklayout,R.id.btn_parallaxback, R.id.btn_logger,R.id.btn_rxbinding, R.id.easy_permissions, R.id.RxPermission_layout,R.id.btn_vector, R.id.btn_rxjava, R.id.btn_okhttp, R.id.btn_add_flutter_view})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_tab_top:
                 startActivity(new Intent(this, TabLayoutTopActivity.class));
                 break;
-            case R.id.btn_tab_recyclerview:
-                startActivity(new Intent(this, TablayoutRecyclerViewActivity.class));
+            case R.id.btn_rxbinding:
+                startActivity(new Intent(this, RxBindingActivity.class));
                 break;
             case R.id.btn_vector:
                 //startActivity(new Intent(this, VectorDemoActivity.class));
@@ -44,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, AddFlutterViewActivity.class));
                 break;
             case R.id.RxPermission_layout:
-                startActivity(new Intent(this, RxPermissionActivity.class));
+                startActivity(new Intent(this, RxPermissionsActivity.class));
                 break;
             case R.id.easy_permissions:
                 startActivity(new Intent(this, EasyPermissionsActivity.class));
