@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/layout"
+<RelativeLayout android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
 
 
     <Button
@@ -30,6 +30,16 @@
         android:layout_below="@id/btn_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        />
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/fresco_img"
+        android:layout_alignLeft="@id/img"
+        android:layout_below="@id/img"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        fresco:placeholderImage="@drawable/wallpaper"
         />
 
 </RelativeLayout>

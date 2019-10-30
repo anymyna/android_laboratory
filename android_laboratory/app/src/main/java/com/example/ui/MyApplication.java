@@ -9,6 +9,7 @@ import com.didichuxing.doraemonkit.DoraemonKit;
 import com.example.ui.database.greenDao.db.DaoMaster;
 import com.example.ui.database.greenDao.db.DaoSession;
 import com.example.ui.dbflow.AppDatabase;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -28,7 +29,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Stetho.initializeWithDefaults(this);
-
+        Fresco.initialize(this);
         registerActivityLifecycleCallbacks(ParallaxHelper.getInstance());
 
         //DoraemonKit.install(this);

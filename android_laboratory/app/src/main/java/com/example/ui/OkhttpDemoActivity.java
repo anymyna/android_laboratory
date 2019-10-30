@@ -1,6 +1,7 @@
 package com.example.ui;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.example.ui.aspect.DoubleClickAnnotation;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.orhanobut.logger.Logger;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -58,6 +60,10 @@ public class OkhttpDemoActivity extends AppCompatActivity {
                         img.setImageBitmap(response);
                     }
                 });
+
+        Uri uri = Uri.parse("http://images.csdn.net/20150817/1.jpg");
+        SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.fresco_img);
+        draweeView.setImageURI(uri);
     }
 
     public void onClickPost(View v) {
