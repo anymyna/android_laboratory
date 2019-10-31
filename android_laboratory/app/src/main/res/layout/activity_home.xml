@@ -40,14 +40,14 @@
 
 
             <Button
-                android:id="@+id/btn_vector"
+                android:id="@+id/btn_subsampling"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_40"
                 android:gravity="left|center_vertical"
                 android:layout_alignLeft="@id/btn_rxbinding"
                 android:layout_below="@id/btn_rxbinding"
                 android:textAllCaps="false"
-                android:text="Vector"
+                android:text="Subsampling"
                 />
 
 
@@ -56,8 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_40"
                 android:gravity="left|center_vertical"
-                android:layout_alignLeft="@id/btn_vector"
-                android:layout_below="@id/btn_vector"
+                android:layout_alignLeft="@id/btn_subsampling"
+                android:layout_below="@id/btn_subsampling"
                 android:textAllCaps="false"
                 android:text="Rxjava"
                 />

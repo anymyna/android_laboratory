@@ -44,8 +44,8 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".VectorDemoActivity"
-            android:label="VectorDemo"
+            android:name=".SubsamplingActivity"
+            android:label="Subsampling"
             android:screenOrientation="portrait"/>
 
 
