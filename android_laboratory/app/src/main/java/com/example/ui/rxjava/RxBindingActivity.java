@@ -1,6 +1,5 @@
 package com.example.ui.rxjava;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
@@ -9,18 +8,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.example.ui.R;
+import com.jakewharton.rxbinding2.support.v7.widget.RecyclerViewChildAttachStateChangeEvent;
+import com.jakewharton.rxbinding2.support.v7.widget.RecyclerViewFlingEvent;
+import com.jakewharton.rxbinding2.support.v7.widget.RecyclerViewScrollEvent;
+import com.jakewharton.rxbinding2.support.v7.widget.RxRecyclerView;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.jakewharton.rxbinding2.widget.RxCompoundButton;
 import com.jakewharton.rxbinding2.widget.RxTextView;
+import com.orhanobut.logger.Logger;
 
 
 import java.util.concurrent.TimeUnit;
@@ -29,6 +31,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 
 public class RxBindingActivity extends AppCompatActivity {
@@ -50,7 +53,8 @@ public class RxBindingActivity extends AppCompatActivity {
 
         Button camera = findViewById(R.id.text_camera);
 
-        RxView.clicks(camera )
+        //点击监听
+        RxView.clicks(camera)
                 .throttleFirst(2, TimeUnit.SECONDS)
                 .subscribe(new Consumer<Object>() {
                     @Override
@@ -59,8 +63,7 @@ public class RxBindingActivity extends AppCompatActivity {
                     }
                 });
 
-
-
+        //长按监听
         RxView.longClicks(camera)
                 .subscribe(new Consumer<Object>() {
                     @Override
@@ -69,7 +72,7 @@ public class RxBindingActivity extends AppCompatActivity {
                     }
                 });
 
-
+        //绘制监听
         RxView.draws(camera)
                 .subscribe(new Consumer<Object>() {
                     @Override
@@ -88,34 +91,93 @@ public class RxBindingActivity extends AppCompatActivity {
                     }
                 });
 
+        //TextView textChanges 监听
         TextView textView = findViewById(R.id.text);
-
-        RxTextView.textChanges(textView).subscribe(new Consumer<CharSequence>() {
+        addDisposable(RxTextView.textChanges(textView).subscribe(new Consumer<CharSequence>() {
             @Override
             public void accept(CharSequence text) throws Exception {
                 Toast.makeText(RxBindingActivity.this, "textChanges", Toast.LENGTH_LONG).show();
             }
-        });
+        }));
 
-
-
-
+       //checkedChanges选中状态改变事件
         Button sms = findViewById(R.id.btn_sms);
         sms.setEnabled(false);
         CheckBox checkBox = findViewById(R.id.checkbox);
         addDisposable(RxCompoundButton.checkedChanges(checkBox)
                 .subscribe(aBoolean -> {
-                    Toast.makeText(RxBindingActivity.this, "checkedChanges "+aBoolean, Toast.LENGTH_LONG).show();
-//                    RxView.enabled(sms).accept(aBoolean);
-//                    sms.setBackgroundResource(aBoolean ? R.color.colorPrimary : R.color.red);
-//                    RxTextView.color(sms).accept(aBoolean ? Color.parseColor("#ffffff") :
-//                            Color.parseColor("#000000"));
+                    Toast.makeText(RxBindingActivity.this, "checkedChanges " + aBoolean, Toast.LENGTH_LONG).show();
                 }));
         addDisposable(RxView.clicks(sms)
                 //防抖2s
                 .throttleFirst(2, TimeUnit.SECONDS)
                 .subscribe(o -> Toast.makeText(RxBindingActivity.this, "sms",
                         Toast.LENGTH_SHORT).show()));
+
+
+        //RecyclerView滚动事件
+        RxRecyclerView.scrollEvents(mRecyclerView)
+                .subscribe(new Consumer<RecyclerViewScrollEvent>() {
+                    @Override
+                    public void accept(RecyclerViewScrollEvent recyclerViewScrollEvent) throws Exception {
+                        recyclerViewScrollEvent.dx();   //X方向滚动了dx
+                        recyclerViewScrollEvent.dy();   //Y方向滚动了dy
+                        recyclerViewScrollEvent.view(); //RecyclerView
+                        Logger.e("recyclerViewScrollEvent.dx()"+recyclerViewScrollEvent.dx());
+                    }
+                });
+
+
+        //RecyclerView滚动状态改变
+        RxRecyclerView.scrollStateChanges(mRecyclerView)
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        Logger.e("scrollStateChanges "+integer);
+                    }
+                });
+
+        //View的添加和移除事件
+        RxRecyclerView.childAttachStateChangeEvents(mRecyclerView)
+                .subscribe(new Consumer<RecyclerViewChildAttachStateChangeEvent>() {
+                    @Override
+                    public void accept(RecyclerViewChildAttachStateChangeEvent recyclerViewChildAttachStateChangeEvent) throws Exception {
+                        //onNext
+                        Logger.e("childAttachStateChangeEvents ");
+                        recyclerViewChildAttachStateChangeEvent.child();
+                        recyclerViewChildAttachStateChangeEvent.view();
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        //onError
+                    }
+                }, new Action() {
+                    @Override
+                    public void run() throws Exception {
+                        //onComplete
+                    }
+                }, new Consumer<Disposable>() {
+                    @Override
+                    public void accept(Disposable disposable) throws Exception {
+                        //onSubscribe
+                    }
+                });
+
+        //手指离开屏幕的飞跃事件
+        RxRecyclerView.flingEvents(mRecyclerView)
+                .subscribe(new Consumer<RecyclerViewFlingEvent>() {
+                    @Override
+                    public void accept(RecyclerViewFlingEvent recyclerViewFlingEvent) throws Exception {
+                        Logger.e("flingEvents velocityX(); "+recyclerViewFlingEvent.velocityX());
+                        recyclerViewFlingEvent.velocityX(); //x方向速度
+                        recyclerViewFlingEvent.velocityY(); //y方向速度
+                        recyclerViewFlingEvent.view();
+                    }
+                });
+
+
+
 
     }
 
@@ -169,7 +231,7 @@ public class RxBindingActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 5;
+            return 15;
         }
 
         @Override
